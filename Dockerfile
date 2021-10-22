@@ -13,7 +13,7 @@ USER user
 WORKDIR /home/user
 RUN ln -s /ccache /home/user/.ccache
 # Clone Commander Genius so the build will later only have to pull new commits
-RUN cd && git clone https://gitlab.com/Dringgstein/Commander-Genius.git
+RUN cd && git clone https://gitlab.com/Dringgstein/Commander-Genius.git && cd Commander-Genius && git submodule update --init --recursive
 
 USER root
 COPY fix_perm.sh /fix_perm.sh

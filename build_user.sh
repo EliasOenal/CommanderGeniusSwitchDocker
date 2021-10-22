@@ -33,7 +33,7 @@ echo ""
 cd
 cd Commander-Genius
 rm -rf build
-git pull
+git pull --recurse-submodules
 mkdir -p build
 cd build
 echo ""
@@ -41,7 +41,7 @@ echo "###########################"
 echo "#     Executing CMake     #"
 echo "###########################"
 echo ""
-cmake .. -DCMAKE_SYSTEM_NAME=generic -DCMAKE_C_COMPILER=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc -DCMAKE_CXX_COMPILER=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -DCMAKE_RANLIB=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-ranlib -DCMAKE_AR=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-arcmake .. -DCMAKE_SYSTEM_NAME=generic -DCMAKE_C_COMPILER=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc -DCMAKE_CXX_COMPILER=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -DCMAKE_RANLIB=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-ranlib -DCMAKE_AR=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-ar -DCMAKE_PREFIX_PATH=/opt/devkitpro/portlibs/switch/ -DUSE_BOOST=NO -DPKG_CONFIG_EXECUTABLE=/opt/devkitpro/tools/bin/pkg-config -DUSE_OPENGL=No -DSDL2=Yes -DUSE_VIRTUALPAD=ON -DUSE_CRASHHANDLER=OFF -DNINTENDO_SWITCH=ON && tr -d '\n' < src/CMakeFiles/CGeniusExe.dir/link.txt > src/CMakeFiles/CGeniusExe.dir/link2.txt && echo "-lEGL -lGLESv2 -lglapi -ldrm_nouveau -lcurl -lmbedtls -lmbedcrypto -lmbedx509 -lmodplug -lmpg123 -lvorbisidec -logg -lopusfile -lopus -lpng -lwebp -lfreetype -ljpeg -lz -lbz2 -lnx -lm -lSDL2" >> src/CMakeFiles/CGeniusExe.dir/link2.txt && mv src/CMakeFiles/CGeniusExe.dir/link2.txt src/CMakeFiles/CGeniusExe.dir/link.txt
+cmake .. -DCMAKE_SYSTEM_NAME=generic -DCMAKE_C_COMPILER=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc -DCMAKE_CXX_COMPILER=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -DCMAKE_RANLIB=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-ranlib -DCMAKE_AR=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-arcmake .. -DCMAKE_SYSTEM_NAME=generic -DCMAKE_C_COMPILER=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc -DCMAKE_CXX_COMPILER=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++ -DCMAKE_RANLIB=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-ranlib -DCMAKE_AR=/opt/devkitpro/devkitA64/bin/aarch64-none-elf-ar -DCMAKE_PREFIX_PATH=/opt/devkitpro/portlibs/switch/ -DUSE_BOOST=NO -DPKG_CONFIG_EXECUTABLE=/opt/devkitpro/tools/bin/pkg-config -DUSE_OPENGL=No -DSDL2=Yes -DUSE_VIRTUALPAD=ON -DUSE_CRASHHANDLER=OFF -DBUILD_COSMOS=ON -DNINTENDO_SWITCH=ON && tr -d '\n' < src/CMakeFiles/CGeniusExe.dir/link.txt > src/CMakeFiles/CGeniusExe.dir/link2.txt && echo "-lEGL -lGLESv2 -lglapi -ldrm_nouveau -lcurl -lmbedtls -lmbedcrypto -lmbedx509 -lmodplug -lmpg123 -lvorbisidec -logg -lopusfile -lopus -lpng -lwebp -lfreetype -ljpeg -lz -lbz2 -lnx -lm -lSDL2" >> src/CMakeFiles/CGeniusExe.dir/link2.txt && mv src/CMakeFiles/CGeniusExe.dir/link2.txt src/CMakeFiles/CGeniusExe.dir/link.txt
 VERSION="$(grep "Release" ../version.h | cut -d '"' -f2 | sed  "s/-Release//g")-$(git rev-parse --short HEAD)"
 nacptool --create "Commander Genius" "Gerhard Stein Build: Elias Oenal" "$VERSION" ../switch/cg.nacp
 echo ""
