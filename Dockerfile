@@ -4,7 +4,7 @@ FROM devkitpro/devkita64
 # Install ccache so it can be used during the build
 RUN apt-get update && apt-get install --yes --no-install-recommends ccache cron
 # Pacman requires mtab
-RUN ln -s /proc/self/mounts /etc/mtab
+RUN if [ ! -f "/etc/mtab" ]; then ln -s /proc/self/mounts /etc/mtab ; fi
 # Update devkit pro
 RUN /opt/devkitpro/pacman/bin/pacman --noconfirm -Syu
 
@@ -13,7 +13,7 @@ USER user
 WORKDIR /home/user
 RUN ln -s /ccache /home/user/.ccache
 # Clone Commander Genius so the build will later only have to pull new commits
-RUN cd && git clone https://gitlab.com/Dringgstein/Commander-Genius.git
+RUN cd && git clone https://gitlab.com/Dringgstein/Commander-Genius.git && cd Commander-Genius && git submodule update --init --recursive
 
 USER root
 COPY fix_perm.sh /fix_perm.sh
