@@ -2,7 +2,7 @@
 # Elias Oenal <cg@eliasoenal.com>
 FROM devkitpro/devkita64
 # Install ccache so it can be used during the build
-RUN apt-get update && apt-get install --yes --no-install-recommends ccache cron
+RUN apt-get update && apt-get install --yes --no-install-recommends ccache cron xxd
 # Pacman requires mtab
 RUN if [ ! -f "/etc/mtab" ]; then ln -s /proc/self/mounts /etc/mtab ; fi
 # Update devkit pro
